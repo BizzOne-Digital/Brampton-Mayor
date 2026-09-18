@@ -44,7 +44,7 @@ export function GetInvolvedSection() {
               <motion.div key={c.title} variants={fadeUp} custom={i}>
                 <Link
                   to={c.href}
-                  className="group flex h-full flex-col rounded-2xl border border-black/5 bg-white p-8 shadow-sm transition hover:-translate-y-1 hover:border-primary/30 hover:shadow-xl"
+                  className="card-lift group flex h-full flex-col rounded-2xl border border-black/5 bg-white p-8 shadow-sm hover:border-primary/30"
                 >
                   <div className="flex h-12 w-12 items-center justify-center rounded-full bg-lavender text-primary transition group-hover:bg-primary group-hover:text-white">
                     <Icon className="h-5 w-5" />

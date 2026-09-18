@@ -28,7 +28,12 @@ export function WhyRunning() {
           />
         </motion.div>
 
-        <div>
+        <motion.div
+          initial={{ opacity: 0, x: 24 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
+        >
           <h2 className="font-display text-[clamp(1.75rem,7vw,2.75rem)] uppercase text-midnight sm:text-5xl">
             Why I&apos;m Running
           </h2>
@@ -70,7 +75,7 @@ export function WhyRunning() {
           <Button href="/about" variant="primary" showArrow className="mt-8">
             Meet Nate
           </Button>
-        </div>
+        </motion.div>
       </div>
     </section>
   )

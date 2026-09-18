@@ -24,7 +24,7 @@ export function GetInvolvedOptions() {
         <motion.div key={o.label} variants={fadeUp} custom={i}>
           <Link
             to={`/contact?subject=${encodeURIComponent(o.subject)}`}
-            className="block rounded-xl border border-black/8 bg-off-white px-4 py-4 text-sm font-medium text-midnight transition hover:border-primary hover:bg-lavender/40"
+            className="block rounded-xl border border-black/8 bg-off-white px-4 py-4 text-sm font-medium text-midnight transition-[border-color,background-color,transform,box-shadow] duration-300 hover:-translate-y-0.5 hover:border-primary hover:bg-lavender/40 hover:shadow-md"
           >
             {o.label} →
           </Link>

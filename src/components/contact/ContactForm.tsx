@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import { AnimatePresence, motion } from 'framer-motion'
+import { fadeUp, staggerContainer, viewportOnce } from '@/lib/animations'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useSearchParams } from 'react-router-dom'
@@ -52,7 +54,12 @@ export function ContactForm() {
 
   if (status === 'success') {
     return (
-      <div className="rounded-2xl border border-primary/20 bg-lavender/50 p-8 text-center">
+      <motion.div
+        initial={{ opacity: 0, scale: 0.96 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+        className="rounded-2xl border border-primary/20 bg-lavender/50 p-8 text-center"
+      >
         <h3 className="font-heading text-xl font-bold uppercase text-midnight">Message sent</h3>
         <p className="mt-2 text-muted">
           Thank you for reaching out. The campaign team will follow up as soon as possible.
@@ -64,13 +71,21 @@ export function ContactForm() {
         >
           Send another message
         </button>
-      </div>
+      </motion.div>
     )
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-5" noValidate>
-      <div className="grid gap-5 sm:grid-cols-2">
+    <motion.form
+      onSubmit={handleSubmit(onSubmit)}
+      className="space-y-5"
+      noValidate
+      variants={staggerContainer}
+      initial="hidden"
+      whileInView="visible"
+      viewport={viewportOnce}
+    >
+      <motion.div variants={fadeUp} className="grid gap-5 sm:grid-cols-2">
         <Field label="Full Name" error={errors.fullName?.message}>
           <input
             {...register('fullName')}
@@ -92,8 +107,9 @@ export function ContactForm() {
         <Field label="Postal Code" error={errors.postalCode?.message}>
           <input {...register('postalCode')} className={inputClass} autoComplete="postal-code" />
         </Field>
-      </div>
+      </motion.div>
 
+      <motion.div variants={fadeUp} custom={1}>
       <Field label="Subject" error={errors.subject?.message}>
         <select {...register('subject')} className={inputClass}>
           {contactSubjects.map((s) => (
@@ -101,7 +117,9 @@ export function ContactForm() {
           ))}
         </select>
       </Field>
+      </motion.div>
 
+      <motion.div variants={fadeUp} custom={2}>
       <Field label="Message" error={errors.message?.message}>
         <textarea
           {...register('message')}
@@ -109,23 +127,37 @@ export function ContactForm() {
           className={cn(inputClass, 'resize-y min-h-[120px]')}
         />
       </Field>
+      </motion.div>
 
-      <label className="flex gap-3 text-sm text-muted">
+      <motion.label variants={fadeUp} custom={3} className="flex gap-3 text-sm text-muted">
         <input type="checkbox" {...register('consent')} className="mt-1 h-4 w-4 accent-primary" />
         <span>
           I agree to be contacted by the campaign regarding my message. (Required)
         </span>
-      </label>
+      </motion.label>
       {errors.consent && <p className="text-sm text-red-600">{errors.consent.message}</p>}
 
-      {status === 'error' && (
-        <p className="text-sm text-red-600">Something went wrong. Please try again.</p>
-      )}
+      <AnimatePresence>
+        {status === 'error' && (
+          <motion.p
+            initial={{ opacity: 0, y: -6 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0 }}
+            className="text-sm text-red-600"
+          >
+            Something went wrong. Please try again.
+          </motion.p>
+        )}
+      </AnimatePresence>
 
-      <button
+      <motion.button
+        variants={fadeUp}
+        custom={4}
         type="submit"
         disabled={status === 'loading'}
-        className="inline-flex min-h-11 w-full items-center justify-center rounded-full bg-primary px-6 py-3 text-xs font-heading font-semibold uppercase tracking-wider text-white hover:bg-primary-electric disabled:opacity-60 sm:w-auto"
+        className="inline-flex min-h-11 w-full items-center justify-center rounded-full bg-primary px-6 py-3 text-xs font-heading font-semibold uppercase tracking-wider text-white transition-[background-color,transform] duration-300 hover:bg-primary-electric active:scale-[0.98] disabled:opacity-60 sm:w-auto"
+        whileHover={{ scale: 1.02 }}
+        whileTap={{ scale: 0.98 }}
       >
         {status === 'loading' ? (
           <>
@@ -134,13 +166,13 @@ export function ContactForm() {
         ) : (
           'Send Message'
         )}
-      </button>
-    </form>
+      </motion.button>
+    </motion.form>
   )
 }
 
 const inputClass =
-  'w-full min-h-11 rounded-xl border border-black/10 bg-white px-4 py-3 text-base text-dark outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/20'
+  'w-full min-h-11 rounded-xl border border-black/10 bg-white px-4 py-3 text-base text-dark outline-none transition-[border-color,box-shadow,transform] duration-300 focus:border-primary focus:ring-2 focus:ring-primary/20 focus:scale-[1.01]'
 
 function Field({
   label,

@@ -1,6 +1,6 @@
 import { motion, useReducedMotion } from 'framer-motion'
 import { cn } from '@/lib/utils'
-import { fadeUp } from '@/lib/animations'
+import { fadeUp, lineReveal, viewportOnce } from '@/lib/animations'
 
 type SectionHeadingProps = {
   eyebrow?: string
@@ -35,7 +35,7 @@ export function SectionHeading({
           variants={variants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: '-80px' }}
+          viewport={viewportOnce}
           className={cn(
             'mb-3 flex flex-wrap items-center gap-2 text-[11px] font-heading font-semibold uppercase tracking-[0.14em] sm:gap-3 sm:text-xs sm:tracking-[0.2em]',
             align === 'center' && 'justify-center',
@@ -51,7 +51,7 @@ export function SectionHeading({
         custom={1}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, margin: '-80px' }}
+        viewport={viewportOnce}
         className={cn(
           'font-display text-[clamp(1.75rem,7vw,2.5rem)] uppercase leading-[0.95] tracking-wide sm:text-5xl lg:text-6xl',
           dark ? 'text-white' : 'text-midnight',
@@ -59,13 +59,26 @@ export function SectionHeading({
       >
         {title}
       </motion.h2>
+      {!reduceMotion && (
+        <motion.div
+          variants={lineReveal}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+          className={cn(
+            'mt-4 h-0.5 w-16 origin-left bg-primary',
+            align === 'center' && 'mx-auto',
+          )}
+          aria-hidden
+        />
+      )}
       {subtitle && (
         <motion.p
           variants={variants}
           custom={2}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: '-80px' }}
+          viewport={viewportOnce}
           className={cn(
             'mt-4 text-base leading-relaxed sm:text-lg',
             dark ? 'text-lavender/85' : 'text-muted',

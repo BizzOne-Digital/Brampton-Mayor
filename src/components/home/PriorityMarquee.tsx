@@ -1,3 +1,6 @@
+import { motion } from 'framer-motion'
+import { fadeIn, viewportOnce } from '@/lib/animations'
+
 const items = [
   'Affordability',
   'Responsible Spending',
@@ -14,7 +17,11 @@ export function PriorityMarquee() {
   const doubled = [...items, ...items]
 
   return (
-    <section
+    <motion.section
+      variants={fadeIn}
+      initial="hidden"
+      whileInView="visible"
+      viewport={viewportOnce}
       className="overflow-hidden border-y border-primary/15 bg-midnight py-4 sm:py-5"
       aria-label="Campaign priorities marquee"
     >
@@ -29,6 +36,6 @@ export function PriorityMarquee() {
           </span>
         ))}
       </div>
-    </section>
+    </motion.section>
   )
 }

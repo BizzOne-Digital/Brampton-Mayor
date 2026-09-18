@@ -74,7 +74,7 @@ export function Header() {
                   key={link.href}
                   to={link.href}
                   className={cn(
-                    'relative text-xs font-heading font-semibold uppercase tracking-[0.16em] transition-colors',
+                    'group relative text-xs font-heading font-semibold uppercase tracking-[0.16em] transition-colors duration-300',
                     transparent
                       ? active
                         ? 'text-white'
@@ -85,10 +85,16 @@ export function Header() {
                   )}
                 >
                   {link.label}
-                  {active && (
+                  {active ? (
                     <motion.span
                       layoutId="nav-underline"
                       className="absolute -bottom-1 left-0 right-0 h-0.5 bg-[#7c3aed]"
+                      transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+                    />
+                  ) : (
+                    <span
+                      className="absolute -bottom-1 left-0 right-0 h-0.5 origin-left scale-x-0 bg-[#7c3aed]/80 transition-transform duration-300 group-hover:scale-x-100"
+                      aria-hidden
                     />
                   )}
                 </Link>

@@ -12,7 +12,15 @@ export function JourneyTimeline() {
   return (
     <section className="bg-white section-y lg:py-28">
       <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-        <h2 className="font-display text-[clamp(1.75rem,7vw,2.5rem)] uppercase text-midnight">Journey</h2>
+        <motion.h2
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-60px' }}
+          className="font-display text-[clamp(1.75rem,7vw,2.5rem)] uppercase text-midnight"
+        >
+          Journey
+        </motion.h2>
         <div ref={ref} className="relative mt-12">
           <div className="absolute left-[7px] top-0 bottom-0 w-0.5 bg-lavender" aria-hidden />
           <motion.div

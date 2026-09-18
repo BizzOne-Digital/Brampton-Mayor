@@ -1,7 +1,7 @@
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { useRef } from 'react'
 import type { LucideIcon } from 'lucide-react'
-import { fadeUp } from '@/lib/animations'
+import { fadeLeft, fadeRight, fadeUp, viewportOnce } from '@/lib/animations'
 import { OptimizedImage } from '@/components/ui/OptimizedImage'
 import { useMediaQuery } from '@/lib/useMediaQuery'
 import { cn } from '@/lib/utils'
@@ -50,7 +50,7 @@ export function PlanSection({
           variants={fadeUp}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: '-80px' }}
+          viewport={viewportOnce}
         >
           <span className="font-display text-5xl text-primary/15 sm:text-6xl">{number}</span>
           <div className="mt-2 flex h-14 w-14 items-center justify-center rounded-full bg-primary text-white">
@@ -68,6 +68,10 @@ export function PlanSection({
         </motion.div>
 
         <motion.div
+          variants={reverse ? fadeLeft : fadeRight}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
           style={isLg ? { y } : undefined}
           className={cn(
             'relative min-w-0',

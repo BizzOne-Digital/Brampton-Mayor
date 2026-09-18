@@ -1,8 +1,11 @@
+import { motion } from 'framer-motion'
 import { Building2, Coins, Leaf, Palette, Shield } from 'lucide-react'
 import { PageMeta } from '@/components/shared/PageMeta'
+import { PageHeroBand } from '@/components/shared/PageHeroBand'
 import { PlanSection } from '@/components/plan/PlanSection'
 import { Button } from '@/components/ui/Button'
 import { campaign, getDonationHref } from '@config/campaign'
+import { fadeUp, staggerContainer, viewportOnce } from '@/lib/animations'
 
 export function PlanPage() {
   return (
@@ -12,18 +15,11 @@ export function PlanPage() {
         description="Nate Peart’s plan for responsible government, local jobs, safer neighbourhoods and a better quality of life in Brampton."
         path="/plan"
       />
-      <section className="bg-midnight pb-12 pt-[max(7rem,calc(env(safe-area-inset-top,0px)+5.5rem))] text-white sm:pb-16 lg:pt-40">
-        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-          <h1 className="font-display text-[clamp(1.75rem,7vw,2.75rem)] uppercase sm:text-5xl lg:text-6xl">
-            The Plan for Brampton
-          </h1>
-          <p className="mt-6 text-lg text-lavender/85 leading-relaxed">
-            Brampton&apos;s growth must produce real results for the people who live here. Nate&apos;s
-            plan is focused on responsible government, stronger communities, local opportunity and a
-            better quality of life.
-          </p>
-        </div>
-      </section>
+      <PageHeroBand
+        narrow
+        title="The Plan for Brampton"
+        description="Brampton's growth must produce real results for the people who live here. Nate's plan is focused on responsible government, stronger communities, local opportunity and a better quality of life."
+      />
 
       <PlanSection
         number="01"
@@ -134,14 +130,28 @@ export function PlanPage() {
       </PlanSection>
 
       <section className="bg-primary-deep px-4 py-14 text-center text-white sm:py-20">
-        <p className="font-display text-[clamp(1.35rem,5.5vw,2rem)] uppercase sm:text-4xl">
-          Let&apos;s build a Brampton we&apos;re proud to call home.
-        </p>
-        <div className="btn-stack-mobile mx-auto mt-8 max-w-md justify-center sm:max-w-none sm:flex-row sm:flex-wrap">
-          <Button href="/contact" variant="primary">Get Involved</Button>
-          <Button href="/contact" variant="ghost">Contact the Campaign</Button>
-          <Button href={getDonationHref()} variant="ghost">Donate</Button>
-        </div>
+        <motion.div
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+        >
+          <motion.p
+            variants={fadeUp}
+            className="font-display text-[clamp(1.35rem,5.5vw,2rem)] uppercase sm:text-4xl"
+          >
+            Let&apos;s build a Brampton we&apos;re proud to call home.
+          </motion.p>
+          <motion.div
+            variants={fadeUp}
+            custom={1}
+            className="btn-stack-mobile mx-auto mt-8 max-w-md justify-center sm:max-w-none sm:flex-row sm:flex-wrap"
+          >
+            <Button href="/contact" variant="primary">Get Involved</Button>
+            <Button href="/contact" variant="ghost">Contact the Campaign</Button>
+            <Button href={getDonationHref()} variant="ghost">Donate</Button>
+          </motion.div>
+        </motion.div>
       </section>
     </>
   )

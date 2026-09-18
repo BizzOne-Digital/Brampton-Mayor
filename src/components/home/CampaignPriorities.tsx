@@ -90,6 +90,8 @@ export function CampaignPriorities() {
                 custom={i}
                 onMouseEnter={() => setActive(i)}
                 onMouseLeave={() => setActive(null)}
+                whileHover={{ y: -6 }}
+                transition={{ type: 'spring', stiffness: 400, damping: 28 }}
                 className={cn(
                   'group relative overflow-hidden rounded-2xl border bg-white p-6 transition-shadow duration-300',
                   open

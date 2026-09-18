@@ -71,10 +71,10 @@ export function Button(props: ButtonAsButton | ButtonAsLink) {
     className,
     children,
     showArrow,
-    magnetic = false,
+    magnetic = true,
   } = props
   const classes = cn(
-    'inline-flex min-h-11 touch-manipulation items-center justify-center rounded-full px-5 py-2.5 text-[11px] font-heading font-semibold uppercase tracking-[0.12em] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-electric sm:px-6 sm:text-xs sm:tracking-[0.14em]',
+    'inline-flex min-h-11 touch-manipulation items-center justify-center rounded-full px-5 py-2.5 text-[11px] font-heading font-semibold uppercase tracking-[0.12em] transition-[color,background-color,border-color,box-shadow,transform] duration-300 ease-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-electric sm:px-6 sm:text-xs sm:tracking-[0.14em]',
     variants[variant],
     className,
   )

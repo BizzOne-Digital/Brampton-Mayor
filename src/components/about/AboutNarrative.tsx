@@ -9,9 +9,13 @@ export function AboutNarrative() {
   return (
     <>
       {aboutSections.map((section, index) => (
-        <section
+        <motion.section
           key={section.id}
           id={section.id}
+          initial={{ opacity: 0, y: 28 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-80px' }}
+          transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
           className={cn(
             'py-12 sm:py-16 lg:py-24',
             index % 2 === 0 ? 'bg-white' : 'bg-off-white',
@@ -64,7 +68,7 @@ export function AboutNarrative() {
               ))}
             </div>
           </div>
-        </section>
+        </motion.section>
       ))}
     </>
   )
