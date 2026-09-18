@@ -92,7 +92,7 @@ export function Footer() {
                   <img
                     src={campaign.logoSrc}
                     alt="Brampton First campaign logo"
-                    className="h-16 w-16 shrink-0 rounded-xl object-cover object-[88%_92%] ring-1 ring-white/15"
+                    className="h-16 w-16 shrink-0 rounded-xl object-cover object-right object-bottom ring-1 ring-white/15"
                   />
                   <div>
                     <p className="font-heading text-xl font-bold uppercase tracking-wide">Nate Peart</p>

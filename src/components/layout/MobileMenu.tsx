@@ -22,7 +22,7 @@ export function MobileMenu({ onClose }: MobileMenuProps) {
           <img
             src={campaign.logoSrc}
             alt=""
-            className="h-12 w-12 rounded-lg object-cover object-[88%_92%]"
+            className="h-12 w-12 rounded-lg object-cover object-right object-bottom"
           />
           <button
             type="button"

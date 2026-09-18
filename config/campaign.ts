@@ -32,12 +32,12 @@ export const campaign = {
   disclaimer:
     '[PLACEHOLDER: Insert authorized campaign disclaimer and election authority statement as required by law.]',
   privacyPolicyUrl: '#privacy',
-  logoSrc: '/images/campaign-logo.jpg',
+  logoSrc: '/images/campaign-poster.png',
   images: {
     heroBackground: '/images/hero-background.jpg',
     heroPortrait: '/images/nate-peart-hero.jpg',
     cityHall: '/images/brampton-city-hall.jpg',
-    campaignPoster: '/images/campaign-logo.jpg',
+    campaignPoster: '/images/campaign-poster.png',
     about: '/images/nate-peart-about.jpg',
     community: '/images/brampton-neighbourhood.jpg',
     neighbourhood: '/images/brampton-neighbourhood.jpg',

@@ -42,7 +42,7 @@ export function Header() {
               src={campaign.logoSrc}
               alt="Brampton First — Nate Peart for Mayor"
               className={cn(
-                'h-10 w-10 shrink-0 rounded-md object-cover object-[88%_92%] sm:h-11 sm:w-11',
+                'h-10 w-10 shrink-0 rounded-md object-cover object-right object-bottom sm:h-11 sm:w-11',
                 transparent ? 'ring-1 ring-white/25' : 'ring-1 ring-black/10',
               )}
             />
