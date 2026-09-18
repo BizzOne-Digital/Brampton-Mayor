@@ -81,7 +81,7 @@ export function HeroSection() {
             src={campaign.images.heroBackground}
             alt=""
             loading="eager"
-            className="h-full w-full scale-105 object-cover object-[58%_center] lg:object-[62%_center]"
+            className="h-full w-full object-cover object-[52%_42%] sm:object-[54%_40%] lg:object-[58%_38%]"
           />
         </motion.div>
 
@@ -91,7 +91,7 @@ export function HeroSection() {
           aria-hidden
         />
         <div
-          className="absolute inset-0 bg-gradient-to-r from-[#080d2b] via-[#080d2b]/75 to-transparent lg:from-[#080d2b]/95 lg:via-[#080d2b]/40"
+          className="absolute inset-0 bg-gradient-to-r from-[#080d2b] via-[#080d2b]/82 to-transparent lg:from-[#080d2b]/92 lg:via-[#080d2b]/35 lg:to-transparent"
           aria-hidden
         />
         <div
