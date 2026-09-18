@@ -44,10 +44,19 @@ export function ContactPage() {
                 </a>
               </li>
             </ul>
-            <p className="mt-6 text-sm text-muted">
-              Social media: {campaign.socialHandles.instagram} (placeholders — add URLs in
-              config/campaign.ts)
-            </p>
+            {campaign.social.instagram ? (
+              <p className="mt-6 text-sm text-muted">
+                Instagram:{' '}
+                <a
+                  href={campaign.social.instagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-medium text-primary hover:text-primary-electric"
+                >
+                  {campaign.socialHandles.instagram}
+                </a>
+              </p>
+            ) : null}
 
             <h2 className="mt-12 font-heading text-xl font-bold uppercase text-midnight">
               Get Involved

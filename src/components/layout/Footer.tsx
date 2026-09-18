@@ -8,10 +8,10 @@ import { FlowerIcon } from '@/components/shared/FlowerIcon'
 import { OptimizedImage } from '@/components/ui/OptimizedImage'
 import { fadeUp } from '@/lib/animations'
 
-const socialPlaceholders = [
-  { label: 'Facebook', handle: campaign.socialHandles.facebook },
-  { label: 'Instagram', handle: campaign.socialHandles.instagram },
-  { label: 'TikTok', handle: campaign.socialHandles.tiktok },
+const socialLinks = [
+  { label: 'Facebook', handle: campaign.socialHandles.facebook, href: campaign.social.facebook },
+  { label: 'Instagram', handle: campaign.socialHandles.instagram, href: campaign.social.instagram },
+  { label: 'TikTok', handle: campaign.socialHandles.tiktok, href: campaign.social.tiktok },
 ]
 
 export function Footer() {
@@ -191,17 +191,31 @@ export function Footer() {
               >
                 <FooterColumnTitle>Follow the campaign</FooterColumnTitle>
                 <ul className="mt-5 space-y-3">
-                  {socialPlaceholders.map((s) => (
+                  {socialLinks.map((s) => (
                     <li key={s.label}>
-                      <span
-                        className="flex items-center justify-between rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3 text-sm text-lavender/80"
-                        title={`${s.label} URL — add in config/campaign.ts`}
-                      >
-                        <span className="font-heading text-xs font-semibold uppercase tracking-wider">
-                          {s.label}
+                      {s.href ? (
+                        <a
+                          href={s.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center justify-between rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3 text-sm text-lavender/80 transition hover:border-primary-electric/40 hover:bg-white/[0.06]"
+                        >
+                          <span className="font-heading text-xs font-semibold uppercase tracking-wider">
+                            {s.label}
+                          </span>
+                          <span className="text-[11px] text-white/70">{s.handle}</span>
+                        </a>
+                      ) : (
+                        <span
+                          className="flex items-center justify-between rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3 text-sm text-lavender/80"
+                          title={`${s.label} URL — add in config/campaign.ts`}
+                        >
+                          <span className="font-heading text-xs font-semibold uppercase tracking-wider">
+                            {s.label}
+                          </span>
+                          <span className="text-[11px] text-white/45">{s.handle}</span>
                         </span>
-                        <span className="text-[11px] text-white/45">{s.handle}</span>
-                      </span>
+                      )}
                     </li>
                   ))}
                 </ul>

@@ -20,13 +20,13 @@ export const campaign = {
   officeAddress: '',
   social: {
     facebook: '',
-    instagram: '',
+    instagram: 'https://www.instagram.com/votenateformayor/',
     tiktok: '',
     twitter: '',
   },
   socialHandles: {
     facebook: '@natepeartformayor',
-    instagram: '@natepeartformayor',
+    instagram: '@votenateformayor',
     tiktok: '@natepeartformayor',
   },
   disclaimer:

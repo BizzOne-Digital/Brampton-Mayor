@@ -76,9 +76,16 @@ export function MobileMenu({ onClose }: MobileMenuProps) {
               Get Involved
             </Button>
           </div>
-          <p className="text-center text-xs text-white/40">
-            Social: {campaign.socialHandles.instagram} (placeholders)
-          </p>
+          {campaign.social.instagram ? (
+            <a
+              href={campaign.social.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-center text-xs text-white/50 hover:text-white"
+            >
+              Instagram {campaign.socialHandles.instagram}
+            </a>
+          ) : null}
         </div>
       </div>
     </motion.div>

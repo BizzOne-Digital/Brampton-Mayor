@@ -13,21 +13,38 @@ import { FlowerIcon } from '@/components/shared/FlowerIcon'
 import { OptimizedImage } from '@/components/ui/OptimizedImage'
 
 function SocialRail() {
-  const items = ['Facebook', 'Instagram', 'TikTok']
+  const items = [
+    { label: 'Facebook', href: campaign.social.facebook },
+    { label: 'Instagram', href: campaign.social.instagram },
+    { label: 'TikTok', href: campaign.social.tiktok },
+  ]
   return (
     <div
       className="absolute left-3 top-1/2 z-20 hidden -translate-y-1/2 flex-col gap-4 sm:left-5 lg:flex"
       aria-label="Social media"
     >
-      {items.map((label) => (
-        <span
-          key={label}
-          className="flex h-9 w-9 items-center justify-center rounded-full border border-white/35 text-[10px] font-heading font-semibold uppercase text-white/70"
-          title={`${label} (placeholder)`}
-        >
-          {label[0]}
-        </span>
-      ))}
+      {items.map(({ label, href }) =>
+        href ? (
+          <a
+            key={label}
+            href={href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex h-9 w-9 items-center justify-center rounded-full border border-white/35 text-[10px] font-heading font-semibold uppercase text-white/70 transition hover:border-white/60 hover:text-white"
+            title={label}
+          >
+            {label[0]}
+          </a>
+        ) : (
+          <span
+            key={label}
+            className="flex h-9 w-9 items-center justify-center rounded-full border border-white/20 text-[10px] font-heading font-semibold uppercase text-white/35"
+            title={`${label} (coming soon)`}
+          >
+            {label[0]}
+          </span>
+        ),
+      )}
     </div>
   )
 }
