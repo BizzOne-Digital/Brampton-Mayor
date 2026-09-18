@@ -89,20 +89,6 @@ export function HeroSection() {
         )}
       </div>
 
-      {/* Candidate — right (from hero artwork crop) */}
-      <div
-        className="pointer-events-none absolute bottom-0 right-0 z-[6] h-[min(58vh,520px)] w-full max-w-[min(92vw,420px)] sm:h-[min(65vh,600px)] sm:max-w-md lg:absolute lg:h-[min(88vh,820px)] lg:w-[min(48vw,560px)] lg:max-w-none"
-        aria-hidden
-      >
-        <OptimizedImage
-          src={campaign.images.heroPortrait}
-          alt={`Portrait of ${campaign.candidate.fullName}`}
-          loading="eager"
-          className="h-full w-[165%] max-w-none object-cover object-[76%_18%] sm:w-[155%] lg:w-[145%] lg:object-[74%_16%]"
-        />
-        <div className="absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-[#080d2b]/80 to-transparent lg:w-2/5" />
-      </div>
-
       <SocialRail />
 
       <FlowerIcon
@@ -110,8 +96,8 @@ export function HeroSection() {
         strokeWidth={1}
       />
 
-      <div className="relative z-10 mx-auto flex min-h-[100dvh] max-w-7xl min-w-0 flex-col px-4 pb-32 pt-[max(6.5rem,calc(env(safe-area-inset-top,0px)+5.5rem))] sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8 lg:pb-24 lg:pt-28">
-        <div className="flex w-full min-w-0 max-w-xl flex-col justify-center lg:max-w-2xl lg:pr-6">
+      <div className="relative z-10 mx-auto flex min-h-[100dvh] max-w-7xl min-w-0 flex-col justify-center px-4 pb-32 pt-[max(6.5rem,calc(env(safe-area-inset-top,0px)+5.5rem))] sm:px-6 lg:px-8 lg:pb-24 lg:pt-28">
+        <div className="flex w-full min-w-0 max-w-2xl flex-col justify-center lg:max-w-3xl">
           <motion.p
             initial={{ opacity: 0, x: -16 }}
             animate={{ opacity: 1, x: 0 }}
@@ -178,9 +164,6 @@ export function HeroSection() {
             {campaign.tagline}
           </motion.p>
         </div>
-
-        {/* Spacer for portrait on desktop */}
-        <div className="hidden flex-1 lg:block" aria-hidden />
       </div>
 
       <motion.div

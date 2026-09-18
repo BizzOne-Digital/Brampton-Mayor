@@ -1,7 +1,6 @@
 import { lazy, Suspense } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { SiteLayout } from '@/components/layout/SiteLayout'
-import { LoadingScreen } from '@/components/layout/LoadingScreen'
 import { CustomCursor } from '@/components/layout/CustomCursor'
 
 const HomePage = lazy(() =>
@@ -28,7 +27,6 @@ function PageFallback() {
 export default function App() {
   return (
     <BrowserRouter>
-      <LoadingScreen />
       <CustomCursor />
       <Suspense fallback={<PageFallback />}>
         <Routes>
