@@ -55,7 +55,7 @@ export function HeroSection() {
             src={campaign.images.heroBackground}
             alt=""
             loading="eager"
-            className="h-full w-full object-cover object-[74%_36%] sm:object-[70%_38%] lg:h-[110%] lg:w-full lg:object-[60%_38%]"
+            className="h-full w-full object-cover object-[78%_36%] sm:object-[74%_38%] lg:h-[110%] lg:w-full lg:object-[64%_38%]"
           />
         </div>
 
@@ -78,7 +78,7 @@ export function HeroSection() {
       />
 
       <div
-        className="relative z-10 mx-auto flex min-h-[100dvh] max-w-7xl min-w-0 flex-col justify-start px-4 pb-32 pt-[max(34vh,calc(env(safe-area-inset-top,0px)+11rem))] sm:px-6 sm:pt-[32vh] lg:justify-center lg:px-8 lg:pb-24 lg:pt-28"
+        className="relative z-10 mx-auto flex min-h-[100dvh] max-w-7xl min-w-0 flex-col justify-start px-4 pb-32 pt-[max(34%,calc(env(safe-area-inset-top,0px)+4.5rem))] sm:px-6 max-lg:pt-[34%] lg:justify-center lg:px-8 lg:pb-24 lg:pt-28"
       >
         <div className="flex w-full min-w-0 max-w-2xl flex-col lg:max-w-3xl">
           <motion.p
