@@ -1,11 +1,4 @@
-import { useRef } from 'react'
-import {
-  motion,
-  useMotionValue,
-  useReducedMotion,
-  useSpring,
-  useTransform,
-} from 'framer-motion'
+import { motion } from 'framer-motion'
 import { Mouse } from 'lucide-react'
 import { campaign } from '@config/campaign'
 import { Button } from '@/components/ui/Button'
@@ -50,63 +43,31 @@ function SocialRail() {
 }
 
 export function HeroSection() {
-  const reduceMotion = useReducedMotion()
-  const sectionRef = useRef<HTMLElement>(null)
-  const mx = useMotionValue(0)
-  const my = useMotionValue(0)
-  const glowX = useSpring(mx, { stiffness: 80, damping: 20 })
-  const glowY = useSpring(my, { stiffness: 80, damping: 20 })
-
-  const handleMove = (e: React.MouseEvent) => {
-    if (reduceMotion) return
-    const rect = sectionRef.current?.getBoundingClientRect()
-    if (!rect) return
-    mx.set(e.clientX - rect.left)
-    my.set(e.clientY - rect.top)
-  }
-
-  const parallaxY = useTransform(glowY, (v) => (reduceMotion ? 0 : (v - 400) * 0.02))
-
   return (
     <section
-      ref={sectionRef}
       className="relative min-h-[100dvh] overflow-hidden bg-[#080d2b]"
-      onMouseMove={handleMove}
       aria-label="Campaign hero"
     >
       {/* Background + civic scene */}
       <div className="absolute inset-0 overflow-hidden">
-        <motion.div
-          style={{ y: parallaxY }}
-          className="h-[110%] w-full max-lg:absolute max-lg:inset-y-0 max-lg:right-0 max-lg:left-auto max-lg:h-full max-lg:w-[145%] max-lg:max-w-none"
-        >
+        <div className="h-[110%] w-full max-lg:absolute max-lg:inset-y-0 max-lg:right-0 max-lg:left-auto max-lg:h-full max-lg:w-[145%] max-lg:max-w-none">
           <OptimizedImage
             src={campaign.images.heroBackground}
             alt=""
             loading="eager"
-            className="h-full w-full object-cover object-[72%_36%] sm:object-[68%_38%] lg:h-[110%] lg:w-full lg:object-[58%_38%]"
+            className="h-full w-full object-cover object-[74%_36%] sm:object-[70%_38%] lg:h-[110%] lg:w-full lg:object-[60%_38%]"
           />
-        </motion.div>
+        </div>
 
-        {/* Left panel + diagonal beam (mockup) */}
+        {/* Light scrim for headline readability (no purple tint) */}
         <div
-          className="absolute inset-0 bg-[linear-gradient(105deg,#080d2b_0%,#080d2b_38%,rgba(8,13,43,0.92)_48%,rgba(84,35,154,0.35)_58%,transparent_72%)] max-lg:opacity-45"
+          className="absolute inset-0 bg-gradient-to-r from-[#080d2b]/55 via-[#080d2b]/15 to-transparent lg:from-[#080d2b]/65 lg:via-[#080d2b]/20"
           aria-hidden
         />
         <div
-          className="absolute inset-0 bg-gradient-to-r from-[#080d2b]/88 via-[#080d2b]/55 to-transparent max-lg:from-[#080d2b]/82 max-lg:via-[#080d2b]/40 max-lg:to-[#080d2b]/5 lg:from-[#080d2b]/92 lg:via-[#080d2b]/35 lg:to-transparent"
+          className="absolute inset-0 bg-gradient-to-t from-[#080d2b]/80 via-transparent to-transparent"
           aria-hidden
         />
-        <div
-          className="absolute inset-0 bg-gradient-to-t from-[#080d2b]/90 via-transparent to-[#080d2b]/30"
-          aria-hidden
-        />
-        {!reduceMotion && (
-          <motion.div
-            className="pointer-events-none absolute h-72 w-72 rounded-full bg-[#7c3aed]/20 blur-[120px]"
-            style={{ left: glowX, top: glowY, x: '-50%', y: '-50%' }}
-          />
-        )}
       </div>
 
       <SocialRail />
@@ -116,8 +77,10 @@ export function HeroSection() {
         strokeWidth={1}
       />
 
-      <div className="relative z-10 mx-auto flex min-h-[100dvh] max-w-7xl min-w-0 flex-col justify-center px-4 pb-32 pt-[max(6.5rem,calc(env(safe-area-inset-top,0px)+5.5rem))] sm:px-6 lg:px-8 lg:pb-24 lg:pt-28">
-        <div className="flex w-full min-w-0 max-w-2xl flex-col justify-center lg:max-w-3xl">
+      <div
+        className="relative z-10 mx-auto flex min-h-[100dvh] max-w-7xl min-w-0 flex-col justify-start px-4 pb-32 pt-[max(34vh,calc(env(safe-area-inset-top,0px)+11rem))] sm:px-6 sm:pt-[32vh] lg:justify-center lg:px-8 lg:pb-24 lg:pt-28"
+      >
+        <div className="flex w-full min-w-0 max-w-2xl flex-col lg:max-w-3xl">
           <motion.p
             initial={{ opacity: 0, x: -16 }}
             animate={{ opacity: 1, x: 0 }}
