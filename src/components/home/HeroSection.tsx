@@ -75,23 +75,26 @@ export function HeroSection() {
       aria-label="Campaign hero"
     >
       {/* Background + civic scene */}
-      <div className="absolute inset-0">
-        <motion.div style={{ y: parallaxY }} className="h-[110%] w-full">
+      <div className="absolute inset-0 overflow-hidden">
+        <motion.div
+          style={{ y: parallaxY }}
+          className="h-[110%] w-full max-lg:absolute max-lg:inset-0 max-lg:h-full max-lg:w-[135%] max-lg:max-w-none max-lg:-left-[2%]"
+        >
           <OptimizedImage
             src={campaign.images.heroBackground}
             alt=""
             loading="eager"
-            className="h-full w-full object-cover object-[52%_42%] sm:object-[54%_40%] lg:object-[58%_38%]"
+            className="h-full w-full object-cover object-left object-[left_42%] sm:object-[left_40%] lg:h-[110%] lg:w-full lg:object-[58%_38%]"
           />
         </motion.div>
 
         {/* Left panel + diagonal beam (mockup) */}
         <div
-          className="absolute inset-0 bg-[linear-gradient(105deg,#080d2b_0%,#080d2b_38%,rgba(8,13,43,0.92)_48%,rgba(84,35,154,0.35)_58%,transparent_72%)]"
+          className="absolute inset-0 bg-[linear-gradient(105deg,#080d2b_0%,#080d2b_38%,rgba(8,13,43,0.92)_48%,rgba(84,35,154,0.35)_58%,transparent_72%)] max-lg:opacity-55"
           aria-hidden
         />
         <div
-          className="absolute inset-0 bg-gradient-to-r from-[#080d2b] via-[#080d2b]/82 to-transparent lg:from-[#080d2b]/92 lg:via-[#080d2b]/35 lg:to-transparent"
+          className="absolute inset-0 bg-gradient-to-r from-[#080d2b]/78 via-[#080d2b]/45 to-[#080d2b]/10 max-lg:from-[#080d2b]/70 max-lg:via-[#080d2b]/30 max-lg:to-transparent lg:from-[#080d2b]/92 lg:via-[#080d2b]/35 lg:to-transparent"
           aria-hidden
         />
         <div
