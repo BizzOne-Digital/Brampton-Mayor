@@ -41,7 +41,7 @@ export function Footer() {
               Together, let&apos;s build a Brampton we&apos;re proud to call home.
             </h2>
             <p className="mt-4 text-sm leading-relaxed text-lavender/90 sm:text-base">
-              {campaign.tagline} — volunteer, donate, or reach out to bring Nate&apos;s vision to
+              {campaign.tagline}. Volunteer, donate, or reach out to bring Nate&apos;s vision to
               every neighbourhood.
             </p>
           </div>
@@ -208,7 +208,7 @@ export function Footer() {
                       ) : (
                         <span
                           className="flex items-center justify-between rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3 text-sm text-lavender/80"
-                          title={`${s.label} URL — add in config/campaign.ts`}
+                          title={`${s.label} URL: add in config/campaign.ts`}
                         >
                           <span className="font-heading text-xs font-semibold uppercase tracking-wider">
                             {s.label}

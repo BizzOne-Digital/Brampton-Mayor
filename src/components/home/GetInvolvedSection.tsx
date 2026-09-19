@@ -19,7 +19,7 @@ const cards = [
   },
   {
     title: 'Contact Nate',
-    text: 'Questions, ideas or community concerns — the campaign wants to hear from you.',
+    text: 'Questions, ideas or community concerns? The campaign wants to hear from you.',
     icon: MessageCircle,
     href: '/contact',
   },

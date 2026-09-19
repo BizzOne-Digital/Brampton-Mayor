@@ -40,7 +40,7 @@ export function WhyRunning() {
           <div className="mt-6 space-y-4 text-muted">
             <p>
               I have watched Brampton grow from the city I knew as a child into one of
-              Canada&apos;s largest and fastest-growing communities. Growth brings opportunity, but
+              Canada&apos;s largest and fastest growing communities. Growth brings opportunity, but
               growth also brings responsibility.
             </p>
             <p className="font-medium text-dark">

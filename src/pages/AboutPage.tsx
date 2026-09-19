@@ -9,7 +9,7 @@ export function AboutPage() {
     <>
       <PageMeta
         title="Meet Nate"
-        description="Born in Brampton. Raised in Brampton. Ready to serve Brampton — meet Nathaniel “Nate” Peart."
+        description="Born in Brampton. Raised in Brampton. Ready to serve Brampton. Meet Nathaniel “Nate” Peart."
         path="/about"
       />
       <AboutHero />

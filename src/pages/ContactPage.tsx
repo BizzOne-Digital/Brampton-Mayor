@@ -12,7 +12,7 @@ export function ContactPage() {
     <>
       <PageMeta
         title="Contact & Get Involved"
-        description="Contact the Nate Peart for Mayor campaign — volunteer, share your ideas, or get in touch."
+        description="Contact the Nate Peart for Mayor campaign. Volunteer, share your ideas, or get in touch."
         path="/contact"
       />
       <PageHeroBand title="Let's Build Brampton's Future Together" />

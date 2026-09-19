@@ -40,7 +40,7 @@ const priorities = [
   },
   {
     title: 'Support Local Business',
-    summary: 'Help entrepreneurs grow here—not elsewhere.',
+    summary: 'Help entrepreneurs grow here, not elsewhere.',
     icon: Users,
     stat: '04',
     detail: 'Make City Hall easier to work with for small businesses and investors.',

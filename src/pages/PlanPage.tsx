@@ -47,7 +47,7 @@ export function PlanPage() {
         <p>
           Brampton should not simply be a city people leave every morning to go to work. Nate wants
           Brampton competing aggressively for major employers, corporate offices, technology
-          companies, financial institutions, advanced manufacturing and other high-quality
+          companies, financial institutions, advanced manufacturing and other high quality
           employment.
         </p>
         <p>
@@ -124,7 +124,7 @@ export function PlanPage() {
       >
         <p>
           Cleaner streets, healthier neighbourhoods and wiser use of public space strengthen the
-          communities Brampton families call home — building on accountable spending and local
+          communities Brampton families call home, building on accountable spending and local
           opportunity across the platform.
         </p>
       </PlanSection>

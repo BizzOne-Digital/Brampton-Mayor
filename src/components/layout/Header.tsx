@@ -40,7 +40,7 @@ export function Header() {
           <Link to="/" className="group flex min-w-0 items-center gap-2.5 sm:gap-3">
             <img
               src={campaign.logoSrc}
-              alt="Brampton First — Nate Peart for Mayor"
+              alt="Brampton First, Nate Peart for Mayor"
               className={cn(
                 'h-10 w-10 shrink-0 rounded-md object-cover object-right object-bottom sm:h-11 sm:w-11',
                 transparent ? 'ring-1 ring-white/25' : 'ring-1 ring-black/10',
