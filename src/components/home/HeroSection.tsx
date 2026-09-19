@@ -78,23 +78,23 @@ export function HeroSection() {
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
           style={{ y: parallaxY }}
-          className="h-[110%] w-full max-lg:absolute max-lg:inset-0 max-lg:h-full max-lg:w-[135%] max-lg:max-w-none max-lg:-left-[2%]"
+          className="h-[110%] w-full max-lg:absolute max-lg:inset-y-0 max-lg:right-0 max-lg:left-auto max-lg:h-full max-lg:w-[145%] max-lg:max-w-none"
         >
           <OptimizedImage
             src={campaign.images.heroBackground}
             alt=""
             loading="eager"
-            className="h-full w-full object-cover object-left object-[left_42%] sm:object-[left_40%] lg:h-[110%] lg:w-full lg:object-[58%_38%]"
+            className="h-full w-full object-cover object-[72%_36%] sm:object-[68%_38%] lg:h-[110%] lg:w-full lg:object-[58%_38%]"
           />
         </motion.div>
 
         {/* Left panel + diagonal beam (mockup) */}
         <div
-          className="absolute inset-0 bg-[linear-gradient(105deg,#080d2b_0%,#080d2b_38%,rgba(8,13,43,0.92)_48%,rgba(84,35,154,0.35)_58%,transparent_72%)] max-lg:opacity-55"
+          className="absolute inset-0 bg-[linear-gradient(105deg,#080d2b_0%,#080d2b_38%,rgba(8,13,43,0.92)_48%,rgba(84,35,154,0.35)_58%,transparent_72%)] max-lg:opacity-45"
           aria-hidden
         />
         <div
-          className="absolute inset-0 bg-gradient-to-r from-[#080d2b]/78 via-[#080d2b]/45 to-[#080d2b]/10 max-lg:from-[#080d2b]/70 max-lg:via-[#080d2b]/30 max-lg:to-transparent lg:from-[#080d2b]/92 lg:via-[#080d2b]/35 lg:to-transparent"
+          className="absolute inset-0 bg-gradient-to-r from-[#080d2b]/88 via-[#080d2b]/55 to-transparent max-lg:from-[#080d2b]/82 max-lg:via-[#080d2b]/40 max-lg:to-[#080d2b]/5 lg:from-[#080d2b]/92 lg:via-[#080d2b]/35 lg:to-transparent"
           aria-hidden
         />
         <div
@@ -122,9 +122,8 @@ export function HeroSection() {
             initial={{ opacity: 0, x: -16 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
-            className="mb-5 flex items-start gap-3 text-[10px] font-heading font-semibold uppercase leading-snug tracking-[0.16em] text-[#eee7ff] sm:text-[11px] sm:tracking-[0.2em]"
+            className="mb-5 text-[10px] font-heading font-semibold uppercase leading-snug tracking-[0.16em] text-[#eee7ff] sm:text-[11px] sm:tracking-[0.2em]"
           >
-            <span className="mt-2 h-px w-7 shrink-0 bg-[#7c3aed] sm:w-9" aria-hidden />
             <span>
               {campaign.candidate.displayName}
               <span className="mt-1 block font-medium text-[#eee7ff]/85 sm:mt-0 sm:inline sm:before:content-['_']">
@@ -190,13 +189,13 @@ export function HeroSection() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1 }}
-        className="absolute bottom-28 left-1/2 z-20 flex -translate-x-1/2 flex-col items-center gap-2 text-white/50 lg:bottom-10 lg:left-8 lg:translate-x-0"
+        className="absolute bottom-[5.5rem] left-1/2 z-20 hidden -translate-x-1/2 flex-col items-center gap-2 text-white/50 min-[420px]:bottom-32 min-[420px]:flex lg:bottom-10 lg:left-8 lg:translate-x-0"
       >
         <Mouse className="h-5 w-5 animate-bounce" aria-hidden />
         <span className="font-heading text-[10px] uppercase tracking-[0.22em]">Scroll to explore</span>
       </motion.div>
 
-      <p className="absolute bottom-24 left-4 z-20 max-w-[200px] font-heading text-[9px] font-semibold uppercase leading-relaxed tracking-[0.22em] text-white/60 sm:left-6 lg:hidden">
+      <p className="absolute bottom-[4.75rem] left-4 z-20 max-w-[min(200px,55vw)] font-heading text-[9px] font-semibold uppercase leading-relaxed tracking-[0.18em] text-white/60 sm:left-6 lg:hidden">
         {campaign.tagline}
       </p>
     </section>
