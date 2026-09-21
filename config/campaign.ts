@@ -11,11 +11,14 @@ export const campaign = {
   headlineUpper: 'PUTTING BRAMPTON FIRST. ALWAYS.',
   tagline: 'OUR CITY. OUR PEOPLE. OUR FUTURE.',
   email: 'votenateformayor@gmail.com',
-  phone: '819-578-2093',
-  phoneDisplay: '819-578-2093',
+  phone: '289-924-0969',
+  phoneDisplay: '289-924-0969',
+  phoneSecondary: '819-578-2093',
+  phoneSecondaryDisplay: '819-578-2093',
   website: 'https://natepeartformayor.ca',
   canonicalBase: 'https://natepeartformayor.ca',
   electionDate: 'October 26, 2026',
+  /** Empty = all Donate buttons go to /contact?subject=Donate until a real donation link is set. */
   donationUrl: '' as string,
   officeAddress: '',
   social: {

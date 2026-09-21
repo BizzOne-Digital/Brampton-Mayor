@@ -173,6 +173,17 @@ export function Footer() {
                       <span className="text-sm text-lavender/90">{campaign.phoneDisplay}</span>
                     </a>
                   </li>
+                  {campaign.phoneSecondary ? (
+                    <li>
+                      <a
+                        href={`tel:${campaign.phoneSecondary.replace(/-/g, '')}`}
+                        className="flex gap-3 rounded-xl border border-white/10 bg-white/[0.03] p-4 transition hover:border-primary-electric/40 hover:bg-white/[0.06]"
+                      >
+                        <Phone className="mt-0.5 h-4 w-4 shrink-0 text-primary-electric" />
+                        <span className="text-sm text-lavender/90">{campaign.phoneSecondaryDisplay}</span>
+                      </a>
+                    </li>
+                  ) : null}
                   {campaign.website && (
                     <li className="flex gap-3 px-1 text-xs text-white/40">
                       <MapPin className="h-4 w-4 shrink-0 text-primary-electric/70" />

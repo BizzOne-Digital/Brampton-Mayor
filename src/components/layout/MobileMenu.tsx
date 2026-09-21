@@ -68,6 +68,15 @@ export function MobileMenu({ onClose }: MobileMenuProps) {
             <Phone className="h-4 w-4 text-primary-electric" />
             {campaign.phoneDisplay}
           </a>
+          {campaign.phoneSecondary ? (
+            <a
+              href={`tel:${campaign.phoneSecondary.replace(/-/g, '')}`}
+              className="flex items-center gap-3 text-sm text-lavender/90"
+            >
+              <Phone className="h-4 w-4 text-primary-electric" />
+              {campaign.phoneSecondaryDisplay}
+            </a>
+          ) : null}
           <div className="flex gap-3 pt-2">
             <Button href={getDonationHref()} variant="ghost" className="flex-1">
               Donate

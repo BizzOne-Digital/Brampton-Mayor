@@ -46,6 +46,17 @@ export function ContactPage() {
                   {campaign.phoneDisplay}
                 </a>
               </li>
+              {campaign.phoneSecondary ? (
+                <li>
+                  <a
+                    href={`tel:${campaign.phoneSecondary.replace(/-/g, '')}`}
+                    className="interactive-link flex items-center gap-3 text-muted"
+                  >
+                    <Phone className="h-5 w-5 text-primary" />
+                    {campaign.phoneSecondaryDisplay}
+                  </a>
+                </li>
+              ) : null}
             </ul>
             {campaign.social.instagram ? (
               <p className="mt-6 text-sm text-muted">
