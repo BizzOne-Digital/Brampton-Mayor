@@ -15,8 +15,9 @@ export const aboutSections: AboutBlock[] = [
     id: 'roots',
     title: 'Brampton Is Home',
     paragraphs: [
-      'I was born and raised right here in Brampton. I attended local schools, walked these streets, played sports in these communities, built lifelong friendships here, and experienced many of the same opportunities and challenges that Brampton families experience today.',
-      'I attended St. Augustine Secondary School before leaving Brampton to attend Bishop’s University, where I studied Sports Studies, English Literature, and Business Entrepreneurship.',
+      'I was born and raised right here in Brampton. I walked these streets, played sports in these communities, built lifelong friendships here, and experienced many of the same opportunities and challenges that Brampton families experience today.',
+      'I attended Morton Way Public School, Centennial Middle School and St. Augustine Secondary School.',
+      'After graduating from St. Augustine Secondary School, I left to attend Bishop University in Sherbrooke, Quebec. My disciplines were Sports Studies, English Literature and Business Entrepreneurship.',
       'Leaving home for university allowed me to experience life outside of Brampton, meet people from across the country and see different communities firsthand. But it also gave me a greater appreciation for the city that made me who I am.',
       'No matter where life has taken me, Brampton has always been home.',
     ],
@@ -27,7 +28,7 @@ export const aboutSections: AboutBlock[] = [
     paragraphs: [
       'My story has never followed just one path.',
       'I am a musician and artist. I play drums and bass, and I’ve spent years around music, creating, performing and understanding the discipline required to develop a craft.',
-      'I’m also an athlete.',
+      'I am also an athlete.',
       'Football was a major part of my life, and like many young athletes, I dreamed of one day playing professionally. I continued pursuing that goal and eventually attended a tryout with the Ottawa REDBLACKS, hoping to take another step toward the CFL. Unfortunately, an injury during the tryout changed the direction of that journey.',
       'But I refused to allow an injury to determine the rest of my story. I worked my way back, returned to football and eventually played semi-professionally.',
       'When I eventually stepped away from playing, I took the discipline, determination and resilience that sports taught me and redirected it toward something even more important: helping young people.',
@@ -128,10 +129,10 @@ export const aboutSections: AboutBlock[] = [
   },
   {
     id: 'why-running',
-    title: 'Why I\'m Running',
+    title: 'Why I Am Running',
     paragraphs: [
-      'I\'m not running for Mayor because I believe Brampton is a bad city.',
-      'I\'m running because I know what Brampton can become.',
+      'I am not running for Mayor because I believe Brampton is a bad city.',
+      'I am running because I know what Brampton can become.',
       'This city raised me.',
       'It educated me.',
       'It gave me teammates, teachers, coaches, mentors, friends and opportunities.',
@@ -143,7 +144,7 @@ export const aboutSections: AboutBlock[] = [
       'I want our residents to find meaningful careers here.',
       'I want our seniors and families to feel safe here.',
       'I want our artists and athletes to know Brampton supports them before the rest of the world knows their names.',
-      'And when someone from Brampton achieves greatness, I don\'t want them simply to say: “I\'m from Brampton.”',
+      'And when someone from Brampton achieves greatness, I don\'t want them simply to say: “I am from Brampton.”',
       'I want them to be proud to say: “Brampton believed in me.”',
       'This campaign isn\'t about pretending one person can solve every problem.',
       'It\'s about bringing residents, businesses, community organizations, young people and leaders together around a common goal: Building a city where you don\'t have to leave Brampton to find opportunity.',
@@ -154,15 +155,18 @@ export const aboutSections: AboutBlock[] = [
 export const aboutClosing = {
   paragraphs: [
     'My name is Nathaniel “Nate” Peart.',
-    'I was born here. I was raised here. And I\'m ready to serve the city I will always call home.',
+    'I was born here. I was raised here. And I am ready to serve the city I will always call home.',
   ],
   signoff: 'Putting Brampton First, Always',
 }
 
 export const journeySteps = [
   'Born and raised in Brampton',
+  'Morton Way Public School',
+  'Centennial Middle School',
   'St. Augustine Secondary School',
-  "Bishop's University, Sports Studies, English Literature, Business Entrepreneurship",
+  'Bishop University, Sherbrooke, Quebec',
+  'Sports Studies, English Literature and Business Entrepreneurship',
   'Musician and artist',
   'Athlete, pursuit of professional football',
   'Ottawa REDBLACKS tryout',

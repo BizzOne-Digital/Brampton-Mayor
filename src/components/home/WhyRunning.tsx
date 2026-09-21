@@ -35,7 +35,7 @@ export function WhyRunning() {
           transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
         >
           <h2 className="font-display text-[clamp(1.75rem,7vw,2.75rem)] uppercase text-midnight sm:text-5xl">
-            Why I&apos;m Running
+            Why I Am Running
           </h2>
           <div className="mt-6 space-y-4 text-muted">
             <p>

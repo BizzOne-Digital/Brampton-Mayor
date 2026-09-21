@@ -59,13 +59,9 @@ export function HeroSection() {
           />
         </div>
 
-        {/* Light scrim for headline readability (no purple tint) */}
+        {/* Scrim: bottom-weighted on mobile so the portrait stays visible above the copy */}
         <div
-          className="absolute inset-0 bg-gradient-to-r from-[#080d2b]/55 via-[#080d2b]/15 to-transparent lg:from-[#080d2b]/65 lg:via-[#080d2b]/20"
-          aria-hidden
-        />
-        <div
-          className="absolute inset-0 bg-gradient-to-t from-[#080d2b]/80 via-transparent to-transparent"
+          className="absolute inset-0 bg-gradient-to-t from-[#080d2b] via-[#080d2b]/55 to-transparent max-lg:from-[#080d2b] max-lg:via-[#080d2b]/45 max-lg:to-transparent lg:bg-gradient-to-r lg:from-[#080d2b]/65 lg:via-[#080d2b]/20 lg:to-transparent"
           aria-hidden
         />
       </div>
@@ -78,9 +74,9 @@ export function HeroSection() {
       />
 
       <div
-        className="relative z-10 mx-auto flex min-h-[100dvh] max-w-7xl min-w-0 flex-col justify-start px-4 pb-32 pt-[max(46%,calc(env(safe-area-inset-top,0px)+4.5rem))] sm:px-6 max-lg:pt-[46%] lg:justify-center lg:px-8 lg:pb-24 lg:pt-28"
+        className="relative z-10 mx-auto flex min-h-[100dvh] max-w-7xl min-w-0 flex-col justify-end px-4 pb-[calc(5.5rem+env(safe-area-inset-bottom,0px))] pt-[max(5rem,calc(env(safe-area-inset-top,0px)+4rem))] sm:px-6 lg:justify-center lg:px-8 lg:pb-24 lg:pt-28"
       >
-        <div className="flex w-full min-w-0 max-w-2xl flex-col lg:max-w-3xl">
+        <div className="flex w-full min-w-0 max-w-2xl flex-col max-lg:max-w-[20rem] lg:max-w-3xl">
           <motion.p
             initial={{ opacity: 0, x: -16 }}
             animate={{ opacity: 1, x: 0 }}
@@ -99,7 +95,7 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
-            className="font-display text-[clamp(2rem,9vw,3.25rem)] uppercase leading-[0.9] tracking-[0.02em] sm:text-5xl lg:text-[3.75rem] xl:text-7xl"
+            className="font-display text-[clamp(1.65rem,7.5vw,3.25rem)] uppercase leading-[0.92] tracking-[0.02em] sm:text-5xl lg:text-[3.75rem] xl:text-7xl"
           >
             <span className="text-white">PUTTING </span>
             <span className="text-[#c4b5fd] drop-shadow-[0_0_24px_rgba(124,58,237,0.35)]">
