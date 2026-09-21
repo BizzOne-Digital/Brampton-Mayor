@@ -41,31 +41,10 @@ function Inner({ children, showArrow }: { children: React.ReactNode; showArrow?:
   )
 }
 
-function MotionWrap({
-  magnetic,
-  children,
-  className,
-}: {
-  magnetic?: boolean
-  children: React.ReactNode
-  className?: string
-}) {
-  const reduceMotion = useReducedMotion()
-  if (!magnetic || reduceMotion) {
-    return <span className={cn('inline-flex', className)}>{children}</span>
-  }
-  return (
-    <motion.span
-      className={cn('inline-flex', className)}
-      whileHover={{ scale: 1.03 }}
-      whileTap={{ scale: 0.98 }}
-    >
-      {children}
-    </motion.span>
-  )
-}
+const MotionLink = motion.create(Link)
 
 export function Button(props: ButtonAsButton | ButtonAsLink) {
+  const reduceMotion = useReducedMotion()
   const {
     variant = 'primary',
     className,
@@ -74,42 +53,41 @@ export function Button(props: ButtonAsButton | ButtonAsLink) {
     magnetic = true,
   } = props
   const classes = cn(
-    'inline-flex min-h-11 touch-manipulation items-center justify-center rounded-full px-5 py-2.5 text-[11px] font-heading font-semibold uppercase tracking-[0.12em] transition-[color,background-color,border-color,box-shadow,transform] duration-300 ease-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-electric sm:px-6 sm:text-xs sm:tracking-[0.14em]',
+    'relative z-10 inline-flex min-h-11 touch-manipulation items-center justify-center rounded-full px-5 py-2.5 text-[11px] font-heading font-semibold uppercase tracking-[0.12em] transition-[color,background-color,border-color,box-shadow,transform] duration-300 ease-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-electric sm:px-6 sm:text-xs sm:tracking-[0.14em]',
     variants[variant],
     className,
   )
+  const motionProps =
+    magnetic && !reduceMotion
+      ? { whileHover: { scale: 1.03 }, whileTap: { scale: 0.98 } }
+      : {}
 
   if ('href' in props && props.href) {
     const { href, external } = props
     if (external || href.startsWith('http')) {
       return (
-        <MotionWrap magnetic={magnetic}>
-          <a
-            href={href}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={classes}
-          >
-            <Inner showArrow={showArrow}>{children}</Inner>
-          </a>
-        </MotionWrap>
+        <motion.a
+          href={href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={classes}
+          {...motionProps}
+        >
+          <Inner showArrow={showArrow}>{children}</Inner>
+        </motion.a>
       )
     }
     return (
-      <MotionWrap magnetic={magnetic}>
-        <Link to={href} className={classes}>
-          <Inner showArrow={showArrow}>{children}</Inner>
-        </Link>
-      </MotionWrap>
+      <MotionLink to={href} className={classes} {...motionProps}>
+        <Inner showArrow={showArrow}>{children}</Inner>
+      </MotionLink>
     )
   }
 
   const { type = 'button', ...buttonRest } = props as ButtonAsButton
   return (
-    <MotionWrap magnetic={magnetic}>
-      <button type={type} className={classes} {...buttonRest}>
-        <Inner showArrow={showArrow}>{children}</Inner>
-      </button>
-    </MotionWrap>
+    <button type={type} className={classes} {...buttonRest}>
+      <Inner showArrow={showArrow}>{children}</Inner>
+    </button>
   )
 }

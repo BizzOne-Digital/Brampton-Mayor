@@ -122,7 +122,7 @@ function HeroCopy({ stacked }: { stacked?: boolean }) {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.5 }}
-        className="btn-stack-mobile mt-6 sm:mt-8 sm:flex-row sm:flex-wrap"
+        className="relative z-30 btn-stack-mobile mt-6 sm:mt-8 sm:flex-row sm:flex-wrap"
       >
         <Button
           href="/plan"
@@ -182,7 +182,7 @@ export function HeroSection() {
 
       {/* Desktop: full-bleed background + overlay copy */}
       <div className="relative hidden min-h-[100dvh] overflow-hidden lg:block">
-        <div className="absolute inset-0 overflow-hidden">
+        <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
           <div className="h-[110%] w-full">
             <OptimizedImage
               src={campaign.images.heroBackground}
@@ -208,7 +208,7 @@ export function HeroSection() {
           strokeWidth={1}
         />
 
-        <div className="relative z-10 mx-auto flex min-h-[100dvh] max-w-7xl min-w-0 flex-col justify-center px-8 pb-24 pt-28">
+        <div className="pointer-events-auto relative z-20 mx-auto flex min-h-[100dvh] max-w-7xl min-w-0 flex-col justify-center px-8 pb-24 pt-28">
           <HeroCopy />
         </div>
 
@@ -216,7 +216,7 @@ export function HeroSection() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1 }}
-          className="absolute bottom-10 left-8 z-20 flex flex-col items-center gap-2 text-white/50"
+          className="pointer-events-none absolute bottom-10 left-8 z-10 flex flex-col items-center gap-2 text-white/50"
         >
           <Mouse className="h-5 w-5 animate-bounce" aria-hidden />
           <span className="font-heading text-[10px] uppercase tracking-[0.22em]">Scroll to explore</span>
