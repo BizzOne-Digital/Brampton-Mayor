@@ -42,121 +42,186 @@ function SocialRail() {
   )
 }
 
-export function HeroSection() {
+function HeroCopy({ stacked }: { stacked?: boolean }) {
   return (
-    <section
-      className="relative min-h-[100dvh] overflow-hidden bg-[#080d2b]"
-      aria-label="Campaign hero"
-    >
-      {/* Background + civic scene */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="h-[110%] w-full max-lg:absolute max-lg:inset-y-0 max-lg:right-0 max-lg:left-auto max-lg:h-full max-lg:w-[145%] max-lg:max-w-none">
-          <OptimizedImage
-            src={campaign.images.heroBackground}
-            alt=""
-            loading="eager"
-            className="h-full w-full object-cover object-[78%_36%] sm:object-[74%_38%] lg:h-[110%] lg:w-full lg:object-[64%_38%]"
-          />
-        </div>
-
-        {/* Scrim: bottom-weighted on mobile so the portrait stays visible above the copy */}
-        <div
-          className="absolute inset-0 bg-gradient-to-t from-[#080d2b] via-[#080d2b]/55 to-transparent max-lg:from-[#080d2b] max-lg:via-[#080d2b]/45 max-lg:to-transparent lg:bg-gradient-to-r lg:from-[#080d2b]/65 lg:via-[#080d2b]/20 lg:to-transparent"
-          aria-hidden
-        />
-      </div>
-
-      <SocialRail />
-
-      <FlowerIcon
-        className="pointer-events-none absolute bottom-24 left-3 z-10 h-16 w-16 text-[#7c3aed]/40 sm:left-5 lg:bottom-20 lg:h-24 lg:w-24"
-        strokeWidth={1}
-      />
-
-      <div
-        className="relative z-10 mx-auto flex min-h-[100dvh] max-w-7xl min-w-0 flex-col justify-end px-4 pb-[calc(5.5rem+env(safe-area-inset-bottom,0px))] pt-[max(5rem,calc(env(safe-area-inset-top,0px)+4rem))] sm:px-6 lg:justify-center lg:px-8 lg:pb-24 lg:pt-28"
+    <div className={stacked ? 'w-full' : 'flex w-full min-w-0 max-w-2xl flex-col lg:max-w-3xl'}>
+      <motion.p
+        initial={{ opacity: 0, x: stacked ? 0 : -16 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.6 }}
+        className={
+          stacked
+            ? 'mb-4 text-[10px] font-heading font-semibold uppercase leading-snug tracking-[0.18em] text-primary-electric'
+            : 'mb-5 text-[10px] font-heading font-semibold uppercase leading-snug tracking-[0.16em] text-[#eee7ff] sm:text-[11px] sm:tracking-[0.2em]'
+        }
       >
-        <div className="flex w-full min-w-0 max-w-2xl flex-col max-lg:max-w-[20rem] lg:max-w-3xl">
-          <motion.p
-            initial={{ opacity: 0, x: -16 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-            className="mb-5 text-[10px] font-heading font-semibold uppercase leading-snug tracking-[0.16em] text-[#eee7ff] sm:text-[11px] sm:tracking-[0.2em]"
-          >
-            <span>
+        <span>
+          {stacked ? (
+            campaign.tagline
+          ) : (
+            <>
               {campaign.candidate.displayName}
               <span className="mt-1 block font-medium text-[#eee7ff]/85 sm:mt-0 sm:inline sm:before:content-['_']">
                 {campaign.positionLabel}
               </span>
-            </span>
-          </motion.p>
+            </>
+          )}
+        </span>
+      </motion.p>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 28 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
-            className="font-display text-[clamp(1.65rem,7.5vw,3.25rem)] uppercase leading-[0.92] tracking-[0.02em] sm:text-5xl lg:text-[3.75rem] xl:text-7xl"
-          >
-            <span className="text-white">PUTTING </span>
-            <span className="text-[#c4b5fd] drop-shadow-[0_0_24px_rgba(124,58,237,0.35)]">
-              BRAMPTON FIRST.{' '}
-            </span>
-            <span className="text-white">ALWAYS.</span>
-          </motion.h1>
+      {stacked && (
+        <motion.p
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.05 }}
+          className="mb-3 text-[10px] font-heading font-semibold uppercase leading-snug tracking-[0.14em] text-[#eee7ff]/85"
+        >
+          {campaign.candidate.displayName}
+          <span className="mt-1 block font-medium text-[#eee7ff]/70">{campaign.positionLabel}</span>
+        </motion.p>
+      )}
 
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.35 }}
-            className="hero-body mt-6 max-w-md text-sm font-normal leading-relaxed text-[#eee7ff]/90 sm:text-[15px] sm:leading-7"
-          >
-            Born and raised in Brampton. An entrepreneur, coach, artist and community leader
-            working to build a safer, stronger and more affordable city.
-          </motion.p>
+      <motion.h1
+        initial={{ opacity: 0, y: 28 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
+        className={
+          stacked
+            ? 'font-display text-[clamp(1.75rem,8vw,2.25rem)] uppercase leading-[0.95] tracking-[0.02em] text-white'
+            : 'font-display text-[clamp(1.65rem,7.5vw,3.25rem)] uppercase leading-[0.92] tracking-[0.02em] sm:text-5xl lg:text-[3.75rem] xl:text-7xl'
+        }
+      >
+        <span className="text-white">PUTTING </span>
+        <span
+          className={
+            stacked
+              ? 'text-[#c4b5fd]'
+              : 'text-[#c4b5fd] drop-shadow-[0_0_24px_rgba(124,58,237,0.35)]'
+          }
+        >
+          BRAMPTON FIRST.{' '}
+        </span>
+        <span className="text-white">ALWAYS.</span>
+      </motion.h1>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5 }}
-            className="btn-stack-mobile mt-8 sm:flex-row sm:flex-wrap"
-          >
-            <Button
-              href="/plan"
-              variant="primary"
-              showArrow
-              className="border-[#54239a] bg-[#54239a] shadow-[0_0_28px_rgba(124,58,237,0.45)] hover:border-[#7c3aed] hover:bg-[#7c3aed]"
-            >
-              Explore the Plan
-            </Button>
-            <Button href="/about" variant="ghost" showArrow className="border-white/85 text-white">
-              Meet Nate
-            </Button>
-          </motion.div>
+      <motion.p
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.35 }}
+        className={
+          stacked
+            ? 'hero-body mt-4 text-sm leading-relaxed text-[#eee7ff]/90'
+            : 'hero-body mt-6 max-w-md text-sm font-normal leading-relaxed text-[#eee7ff]/90 sm:text-[15px] sm:leading-7'
+        }
+      >
+        Born and raised in Brampton. An entrepreneur, coach, artist and community leader working to
+        build a safer, stronger and more affordable city.
+      </motion.p>
 
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.85 }}
-            className="mt-10 hidden font-heading text-[11px] font-semibold uppercase tracking-[0.28em] text-white/75 lg:block"
-          >
-            {campaign.tagline}
-          </motion.p>
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.5 }}
+        className="btn-stack-mobile mt-6 sm:mt-8 sm:flex-row sm:flex-wrap"
+      >
+        <Button
+          href="/plan"
+          variant="primary"
+          showArrow
+          className={
+            stacked
+              ? 'w-full border-[#54239a] bg-[#54239a] sm:w-auto'
+              : 'border-[#54239a] bg-[#54239a] shadow-[0_0_28px_rgba(124,58,237,0.45)] hover:border-[#7c3aed] hover:bg-[#7c3aed]'
+          }
+        >
+          Explore the Plan
+        </Button>
+        <Button
+          href="/about"
+          variant="ghost"
+          showArrow
+          className={stacked ? 'w-full border-white/50 text-white sm:w-auto' : 'border-white/85 text-white'}
+        >
+          Meet Nate
+        </Button>
+      </motion.div>
+
+      {!stacked && (
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.85 }}
+          className="mt-10 hidden font-heading text-[11px] font-semibold uppercase tracking-[0.28em] text-white/75 lg:block"
+        >
+          {campaign.tagline}
+        </motion.p>
+      )}
+    </div>
+  )
+}
+
+export function HeroSection() {
+  return (
+    <section className="bg-[#080d2b] lg:relative lg:min-h-[100dvh] lg:overflow-hidden" aria-label="Campaign hero">
+      {/* Phone / tablet: header → image → text (stacked) */}
+      <div className="lg:hidden">
+        <div className="w-full overflow-hidden pt-[calc(env(safe-area-inset-top,0px)+3.75rem)]">
+          <div className="aspect-[4/3] w-full sm:aspect-[5/4]">
+            <OptimizedImage
+              src={campaign.images.heroBackground}
+              alt="Nathaniel Nate Peart"
+              loading="eager"
+              className="h-full w-full object-cover object-[62%_32%]"
+            />
+          </div>
+        </div>
+        <div className="px-4 pb-[calc(5.25rem+env(safe-area-inset-bottom,0px))] pt-6 sm:px-6 sm:pt-8">
+          <HeroCopy stacked />
         </div>
       </div>
 
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1 }}
-        className="absolute bottom-[5.5rem] left-1/2 z-20 hidden -translate-x-1/2 flex-col items-center gap-2 text-white/50 min-[420px]:bottom-32 min-[420px]:flex lg:bottom-10 lg:left-8 lg:translate-x-0"
-      >
-        <Mouse className="h-5 w-5 animate-bounce" aria-hidden />
-        <span className="font-heading text-[10px] uppercase tracking-[0.22em]">Scroll to explore</span>
-      </motion.div>
+      {/* Desktop: full-bleed background + overlay copy */}
+      <div className="relative hidden min-h-[100dvh] overflow-hidden lg:block">
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="h-[110%] w-full">
+            <OptimizedImage
+              src={campaign.images.heroBackground}
+              alt=""
+              loading="eager"
+              className="h-full w-full object-cover object-[64%_38%]"
+            />
+          </div>
+          <div
+            className="absolute inset-0 bg-gradient-to-r from-[#080d2b]/65 via-[#080d2b]/20 to-transparent"
+            aria-hidden
+          />
+          <div
+            className="absolute inset-0 bg-gradient-to-t from-[#080d2b]/80 via-transparent to-transparent"
+            aria-hidden
+          />
+        </div>
 
-      <p className="absolute bottom-[4.75rem] left-4 z-20 max-w-[min(200px,55vw)] font-heading text-[9px] font-semibold uppercase leading-relaxed tracking-[0.18em] text-white/60 sm:left-6 lg:hidden">
-        {campaign.tagline}
-      </p>
+        <SocialRail />
+
+        <FlowerIcon
+          className="pointer-events-none absolute bottom-20 left-8 z-10 h-24 w-24 text-[#7c3aed]/40"
+          strokeWidth={1}
+        />
+
+        <div className="relative z-10 mx-auto flex min-h-[100dvh] max-w-7xl min-w-0 flex-col justify-center px-8 pb-24 pt-28">
+          <HeroCopy />
+        </div>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1 }}
+          className="absolute bottom-10 left-8 z-20 flex flex-col items-center gap-2 text-white/50"
+        >
+          <Mouse className="h-5 w-5 animate-bounce" aria-hidden />
+          <span className="font-heading text-[10px] uppercase tracking-[0.22em]">Scroll to explore</span>
+        </motion.div>
+      </div>
     </section>
   )
 }
