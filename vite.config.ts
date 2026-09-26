@@ -50,7 +50,7 @@ function contactApiDevPlugin(): Plugin {
 
         try {
           const body = await readJsonBody(req)
-          const { handleContactPost } = await import('./server/handleContactPost.js')
+          const { handleContactPost } = await import('./lib/handleContactPost.js')
           const result = await handleContactPost(body)
           res.setHeader('Content-Type', 'application/json')
           if (!result.ok) {

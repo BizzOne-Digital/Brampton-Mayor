@@ -1,7 +1,9 @@
-import { contactSchema } from '../src/lib/validation.js'
+import { contactSchema } from './contactSchema.js'
 import { sendContactFormEmail } from './contactMail.js'
 
-export async function handleContactPost(body: unknown): Promise<{ ok: true } | { ok: false; status: number; message: string }> {
+export async function handleContactPost(
+  body: unknown,
+): Promise<{ ok: true } | { ok: false; status: number; message: string }> {
   const parsed = contactSchema.safeParse(body)
   if (!parsed.success) {
     return {

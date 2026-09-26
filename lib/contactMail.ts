@@ -1,5 +1,5 @@
 import nodemailer from 'nodemailer'
-import type { ContactFormValues } from '../src/lib/validation.js'
+import type { ContactFormValues } from './contactSchema.js'
 
 function requireEnv(name: string): string {
   const value = process.env[name]
@@ -19,11 +19,6 @@ export function createSmtpTransporter() {
     secure: false,
     auth: { user, pass },
   })
-}
-
-export async function verifySmtpConnection() {
-  const transporter = createSmtpTransporter()
-  await transporter.verify()
 }
 
 export async function sendContactFormEmail(data: ContactFormValues) {

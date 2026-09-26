@@ -48,6 +48,20 @@ Submissions POST to `/api/contact` and are sent via Gmail SMTP (server-side only
 3. Test SMTP: `npm run test:smtp`
 4. **Vercel / Netlify:** add the same variables in the host dashboard (do not commit `.env`).
 
+### Vercel (required for live contact form)
+
+In [Vercel project → Settings → Environment Variables](https://vercel.com/docs/projects/environment-variables), add for **Production** (and Preview if needed):
+
+| Variable | Example |
+|----------|---------|
+| `SMTP_HOST` | `smtp.gmail.com` |
+| `SMTP_PORT` | `587` |
+| `SMTP_USER` | `votenateformayor@gmail.com` |
+| `SMTP_PASS` | Gmail app password (no spaces) |
+| `MAIL_TO` | `votenateformayor@gmail.com` |
+
+Redeploy after saving. The `/api/contact` route must return `405` on GET when the function is healthy.
+
 ## Stack
 
 React Router · React Hook Form · Zod · Lucide icons

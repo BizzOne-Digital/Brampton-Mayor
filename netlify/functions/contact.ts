@@ -1,5 +1,5 @@
 import type { Handler, HandlerEvent } from '@netlify/functions'
-import { handleContactPost } from '../../server/handleContactPost'
+import { handleContactPost } from '../../lib/handleContactPost.js'
 
 const handler: Handler = async (event: HandlerEvent) => {
   if (event.httpMethod === 'OPTIONS') {
